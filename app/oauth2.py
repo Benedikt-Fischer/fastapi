@@ -43,13 +43,13 @@ def verify_access_token(token: str, credentials_exception):
         raise credentials_exception from error
     return token_data
 
-def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+def get_current_user(token: str = Depends(oauth2_scheme), database: Session = Depends(get_db)):
     """Get and return user id from token"""
     credentials_exception = (HTTPException(status_code=status.HTTP_403_FORBIDDEN,
                             detail="Could not validate credentials",
                             headers={"WWW-Authenticate": "Bearer"}))
     #return verify_access_token(token, credentials_exception)
     token = verify_access_token(token, credentials_exception)
-    user = db.query(models.User).filter(models.User.id == token.id).first()
+    user = database.query(models.User).filter(models.User.id == token.id).first()
 
     return user
