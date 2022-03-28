@@ -1,5 +1,5 @@
 """
-db driver
+Define, create and return session to database
 """
 
 from sqlalchemy import create_engine
