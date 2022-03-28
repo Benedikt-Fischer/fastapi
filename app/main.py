@@ -1,11 +1,14 @@
+"""
+main
+"""
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from . import models
-from .database import engine
+#from . import models
+#from .database import engine
 from .routers import posts, users, auth, vote
 
 # tells sqlalechmy to create generrate all the tables (if they don't exist) when starting up
-# omodels.Base.metadata.create_all(bind=engine)
+# models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
