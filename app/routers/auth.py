@@ -1,5 +1,5 @@
 """
-Auth routes
+Auth / Login routes
 """
 
 from sqlalchemy.orm import Session

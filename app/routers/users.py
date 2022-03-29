@@ -1,5 +1,5 @@
 """
-User routes
+Users routes
 """
 
 from sqlalchemy.orm import Session
