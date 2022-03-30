@@ -67,4 +67,4 @@ class TokenData(BaseModel):
 class Vote(BaseModel):
     """Schema for votes"""
     post_id: int
-    dir: conint(le=1)
+    dir: conint(ge=0, le=1)

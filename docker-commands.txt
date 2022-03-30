@@ -1,0 +1,7 @@
+docker login
+
+docker image tag fastapi_api radagon/fastapi:0.2
+docker push radagon/fastapi:0.2
+
+docker-compose -f docker-compose-dev.yml up -d
+docker-compose -f docker-compose-dev.yml down
