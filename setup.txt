@@ -17,3 +17,5 @@
 
 # pip install alembic
 # alembic init alembic
+
+# pip install pytest
