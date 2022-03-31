@@ -46,7 +46,7 @@ def create_posts(post: schemas.PostCreate, database: Session = Depends(get_db),
     database.refresh(new_post)
     return new_post
 
-@router.get("/{id}", response_model=schemas.PostVoteResponse)
+@router.get("/{post_id}", response_model=schemas.PostVoteResponse)
 def get_post(post_id: int, database: Session = Depends(get_db),
              current_user: int = Depends(oauth2.get_current_user)):
     """Get one post by id, require post id, database, return the post"""
@@ -63,7 +63,7 @@ def get_post(post_id: int, database: Session = Depends(get_db),
     #                        detail="Not authorized to perform this action!")
     return single_post
 
-@router.delete("/{id}")
+@router.delete("/{post_id}")
 def delete_post(post_id: int, database: Session = Depends(get_db),
                 current_user: int = Depends(oauth2.get_current_user)):
     """Delete post by id, can only be done by owner of post
@@ -80,7 +80,7 @@ def delete_post(post_id: int, database: Session = Depends(get_db),
     database.commit()
     return Response(status_code=status.HTTP_204_NO_CONTENT)
 
-@router.put("/{id}", response_model=schemas.PostResponse)
+@router.put("/{post_id}", response_model=schemas.PostResponse)
 def update_post(post_id: int, updated_post: schemas.PostCreate, database: Session = Depends(get_db),
                 current_user: int = Depends(oauth2.get_current_user)):
     """Update post by id, can only be modified by the owner of the post

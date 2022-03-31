@@ -24,7 +24,7 @@ def create_user(user: schemas.UserCreate, database: Session = Depends(get_db)):
     database.refresh(new_user)
     return new_user
 
-@router.get("/{id}", response_model=schemas.UserResponse)
+@router.get("/{user_id}", response_model=schemas.UserResponse)
 def get_user(user_id: int, database: Session = Depends(get_db)):
     """Get user info from database by id"""
     user = database.query(models.User).filter(models.User.id == user_id).first()
