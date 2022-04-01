@@ -1,8 +1,6 @@
 from urllib import response
 import pytest
 from app import schemas
-from jose import jwt
-#from tests.database import client, session
 from app.config import settings
 
 def test_get_all_posts(authorized_client, test_posts):

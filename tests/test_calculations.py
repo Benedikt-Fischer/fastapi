@@ -1,6 +1,3 @@
-#import sys
-#sys.path.append(r"D:\scripts\fastapi")
-
 import pytest
 from app.calculations import add, subtract, multiply, divide, BankAccount, InsufficientFunds
 

@@ -1,7 +1,6 @@
 import pytest
 from app import schemas
 from jose import jwt
-#from tests.database import client, session
 from app.config import settings
 
 def test_root(client):
